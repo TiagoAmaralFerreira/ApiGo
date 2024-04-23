@@ -35,7 +35,7 @@ func Create(w http.ResponseWriter, r *http.Request) {
 	}
 
 	w.Header().Add("Content-Type", "application/json")
-	err = json.NewEncoder(w).Encode(resp)
+	json.NewEncoder(w).Encode(resp)
 	if err != nil {
 		log.Print("Erro ao fazer encode do json", err)
 		http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
